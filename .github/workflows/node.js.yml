@@ -16,18 +16,18 @@ jobs:
         node-version: [16]
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2.2.2
+      - uses: npm/action-setup@v2.2.2
         with:
           version: 7
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: pnpm
+          cache: npm
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
       - name: Build Project
-        run: pnpm build
+        run: npm build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
